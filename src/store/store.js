@@ -1,18 +1,19 @@
 import { createStore, applyMiddleware } from 'redux';
-// import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // middlewares
-
+import reanimationMiddleware from '../middleware/reanimationMiddleware';
 // Reducer
 import rootReducer from '../reducers/rootReducer';
 
-// const enhancers = composeWithDevTools(
-//   applyMiddleware(
-//   ),
-// );
+const enhancers = composeWithDevTools(
+  applyMiddleware(
+    reanimationMiddleware,
+  ),
+);
 const store = createStore(
   rootReducer,
-  // enhancers,
+  enhancers,
 );
 
 export default store;
